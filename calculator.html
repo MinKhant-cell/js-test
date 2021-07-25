@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+</head>
+<body>
+    <div>
+        <h1 class="displayBox"></h1>
+        <div class="keyPad">
+
+        </div>
+    </div>
+
+    <script>
+        let displayBox = document.querySelector(".displayBox");
+        let keyPad = document.querySelector(".keyPad");
+        let calcKey = ['+','-','*','/','='];
+        for (let i=0;i<=9;i++){
+            keyPad.innerHTML += `<button class="noBtn" onclick="showDisplay(${i})">${i}</button>`;
+        }
+        calcKey.map((el)=>{
+            if (el === '='){
+                keyPad.innerHTML += `<button class="calcBtn" onclick="calculate()">${el}</button>`
+
+            }else{
+                keyPad.innerHTML += `<button class="calcBtn" onclick="showDisplay('${el}')">${el}</button>`
+            }
+        });
+
+
+        // FUNCTION
+        function showDisplay(x) {
+            displayBox.innerHTML += x;
+        }
+
+        function calculate() {
+            displayBox.innerHTML = eval(displayBox.innerHTML);
+        }
+    </script>
+</body>
+</html>

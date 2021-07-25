@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS To Do List</title>
+</head>
+<body>
+    <h1>Js TO Do List</h1>
+
+    <input id="addText" type="text"><button id="addBtn" onclick="addList()">Add</button>
+
+    <ol class="list" id="list">
+
+    </ol>
+
+    <script>
+        let addText = document.getElementById("addText");
+        let minTextLength = 3;
+        let i =1;
+        let list = document.getElementById("list");
+
+        function addList() {
+            let x = textFilter(addText.value);
+            if (x){
+                showList(x);
+                addText.value = "";
+            }
+
+        }
+
+        function showList(text) {
+            list.innerHTML += `<li id="list${i}">
+                    <span id="listText${i}">${text}</span>
+                    <button id="delete${i}" onclick="deleteList(${i})">Delete</button>
+                    <button id="edit${i}" onclick="editList(${i})">edit</button>
+                </li>`;
+            i++;
+        }
+
+        function deleteList(listId) {
+            let current = document.getElementById(`list${listId}`);
+            let currentText = document.getElementById(`listText${listId}`).innerHTML;
+
+            let deleteConfirm = confirm(`Are you sure to delete ${currentText}?`);
+            if (deleteConfirm){
+                list.removeChild(current);
+            }else{
+                console.log(`Delete cancel!`);
+            }
+        }
+
+        function editList(listId) {
+            let current= document.getElementById(`listText${listId}`);
+
+            let newText = prompt("Edit List",current.innerHTML);
+            if (textFilter(newText)){
+                current.innerHTML  = newText;
+
+            }
+
+        }
+
+
+        function textFilter(x) {
+            if (x){
+                if (x.length >= minTextLength){
+                    return x;
+                }else {
+                    alert('At least 3 characters!');
+                }
+            }else{
+                alert('Empty Text!');
+            }
+
+        }
+
+
+
+
+    </script>
+
+
+</body>
+</html>

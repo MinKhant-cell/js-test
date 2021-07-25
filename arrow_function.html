@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Arrow Function</title>
+</head>
+<body>
+    <h1>Arrow Function</h1>
+    <button>Click!</button>
+    <script>
+        // function one() {
+        //     console.log(`This is function One`);
+        // }
+
+        let one = () => console.log(`This is function One with arrowFun.`)
+
+        // function two() {
+        //     let x = "x is a variable";
+        //     console.log(x);
+        // }
+
+        let two = () => {
+            let x = "x is a variable";
+            console.log(x);
+        }
+
+        // function three(x){
+        //     console.log(x);
+        // }
+
+        let three = x => console.log(x);
+
+        // function four(x,y="java") {
+        //     console.log(x,y);
+        // }
+
+        let four = (x,y="Java")=> console.log(x,y);
+
+        // document.querySelector("button").addEventListener('click',function () {
+        //     console.log(`This is function five.`);
+        // });
+
+        document.querySelector("button").addEventListener('click',()=>{
+            console.log('this is function 5.')
+        });
+
+        // IIFE
+        // (function () {
+        //     console.log(`This is IIFE`);
+        //
+        // })();
+        (()=>console.log(`This is IIFE with arrowFun.`))();
+
+
+        let obj = {
+            name : "Min Khant",
+            skills : function () {
+                console.log(`${this.name} has many skills.`);
+
+            },
+            // Don't use (this) with arrow function. Just call (obj) directly.
+            job: ()=>console.log(`${obj.name} works as a website developer.`)
+        }
+    </script>
+</body>
+</html>

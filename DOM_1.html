@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        h1{
+            border: 2px solid black;
+            padding: 20px;
+            width: 225px;
+        }
+        input{
+            width: 200px;
+        }
+        button{
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="result">Text</h1>
+    <br>
+    <input type="text" id="text"><button id="setText" onclick="setText()">Set</button>
+    <br>
+    <input type="color" id="color"><button id="setColor" onclick="setColor()">Set</button>
+    <br>
+    <input type="number" id="fontSize"><button id="setFontSize" onclick="setFontSize()">Set</button>
+
+
+    <script>
+        let result = document.querySelector("#result");
+        function setText(){
+            let x = document.querySelector("#text").value;
+             result.innerHTML = x;
+        }
+
+        function setColor() {
+            let x = document.querySelector("#color").value;
+            result.style.color = x;
+        }
+
+        function setFontSize() {
+            let x = document.querySelector("#fontSize").value;
+            result.style.fontSize = x+"px";
+        }
+    </script>
+</body>
+</html>
